@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi_store
+    restart: unless-stopped
+    env_file: .env          # MYSQL_HOST points to your external MySQL server
+    ports:
+      - "8000:8000"
